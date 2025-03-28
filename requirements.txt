@@ -1,0 +1,8 @@
+streamlit
+python-dotenv
+openai   
+python-dotenv
+youtube_transcript_api
+httpx==0.25.0
+cachetools==5.3.1
+google-api-python-client
