@@ -5,6 +5,8 @@ from typing import List, Dict
 DB_PATH = Path("data/user_data.db")
 
 def init_db():
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     
@@ -17,6 +19,7 @@ def init_db():
         )
     ''')
     
+    # For videos
     c.execute('''
         CREATE TABLE IF NOT EXISTS videos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -30,6 +33,7 @@ def init_db():
     
     conn.commit()
     conn.close()
+
 
 def update_feedback(item_id: str, feedback: str, is_video: bool = False):
     """
